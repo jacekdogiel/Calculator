@@ -24,7 +24,7 @@ namespace Calculator
         private void EqualButton_Click(object sender, RoutedEventArgs e)
         {
             double newNumber;
-            if (double.TryParse(resultLabel.Content.ToString().Replace(".", ","), out newNumber))
+            if (double.TryParse(resultLabel.Content.ToString(), out newNumber))
             {
                 switch (selectedOperator)
                 {
@@ -42,7 +42,7 @@ namespace Calculator
                         break;
                 }
                 resultLabel.Content = newNumber == 0 && selectedOperator == SelectedOperator.Division ?
-                                                                            "Błąd" : result.ToString().Replace(",", ".");
+                                                                            "Błąd" : result.ToString();
             }
         }
 
@@ -89,15 +89,15 @@ namespace Calculator
             }
         }
 
-        private void DotButton_Click(object sender, RoutedEventArgs e)
+        private void CommaButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!resultLabel.Content.ToString().Contains(".") && resultLabel.Content.ToString() != "Błąd")
-                resultLabel.Content += ".";
+            if (!resultLabel.Content.ToString().Contains(",") && resultLabel.Content.ToString() != "Błąd")
+                resultLabel.Content += ",";
         }
 
         private void OperationButton_Click(object sender, RoutedEventArgs e)
         {
-            if (double.TryParse(resultLabel.Content.ToString().Replace(".", ","), out lastNumber))
+            if (double.TryParse(resultLabel.Content.ToString(), out lastNumber))
             {
                 resultLabel.Content = "0";
             }

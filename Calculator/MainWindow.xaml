@@ -117,8 +117,8 @@
                 Margin="5"
                 Grid.Row="5"
                 Grid.ColumnSpan="2"/>
-        <Button x:Name="dotButton" Content="."
-                Click="DotButton_Click"
+        <Button x:Name="commaButton" Content=","
+                Click="CommaButton_Click"
                 Margin="5"
                 Grid.Row="5"
                 Grid.Column="2"/>
