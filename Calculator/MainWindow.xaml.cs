@@ -8,7 +8,7 @@ namespace Calculator
     /// </summary>
     public partial class MainWindow : Window
     {
-        double lastNumber, result;
+        double lastNum, result;
         SelectedOperator selectedOperator;
 
         public MainWindow()
@@ -29,16 +29,16 @@ namespace Calculator
                 switch (selectedOperator)
                 {
                     case SelectedOperator.Addition:
-                        result = SimpleMath.Add(lastNumber, newNumber);
+                        result = SimpleMath.Add(lastNum, newNumber);
                         break;
                     case SelectedOperator.Substraction:
-                        result = SimpleMath.Substraction(lastNumber, newNumber);
+                        result = SimpleMath.Substraction(lastNum, newNumber);
                         break;
                     case SelectedOperator.Multiplication:
-                        result = SimpleMath.Multiply(lastNumber, newNumber);
+                        result = SimpleMath.Multiply(lastNum, newNumber);
                         break;
                     case SelectedOperator.Division:
-                        result = SimpleMath.Divide(lastNumber, newNumber);
+                        result = SimpleMath.Divide(lastNum, newNumber);
                         break;
                 }
                 resultLabel.Content = newNumber == 0 && selectedOperator == SelectedOperator.Division ?
@@ -52,18 +52,18 @@ namespace Calculator
             if (double.TryParse(resultLabel.Content.ToString(), out tempNumber))
             {
                 tempNumber /= 100;
-                if (lastNumber != 0)
-                    tempNumber *= lastNumber;
+                if (lastNum != 0)
+                    tempNumber *= lastNum;
                 resultLabel.Content = tempNumber.ToString();
             }
         }
 
         private void NegativeButton_Click(object sender, RoutedEventArgs e)
         {
-            if (double.TryParse(resultLabel.Content.ToString(), out lastNumber))
+            if (double.TryParse(resultLabel.Content.ToString(), out lastNum))
             {
-                lastNumber *= -1;
-                resultLabel.Content = lastNumber.ToString();
+                lastNum *= -1;
+                resultLabel.Content = lastNum.ToString();
             }
         }
 
@@ -71,7 +71,7 @@ namespace Calculator
         {
             resultLabel.Content = "0";
             result = 0;
-            lastNumber = 0;
+            lastNum = 0;
         }
 
         private void NumberButton_Click(object sender, RoutedEventArgs e)
@@ -97,7 +97,7 @@ namespace Calculator
 
         private void OperationButton_Click(object sender, RoutedEventArgs e)
         {
-            if (double.TryParse(resultLabel.Content.ToString(), out lastNumber))
+            if (double.TryParse(resultLabel.Content.ToString(), out lastNum))
             {
                 resultLabel.Content = "0";
             }
