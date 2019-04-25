@@ -23,25 +23,25 @@ namespace Calculator
 
         private void EqualButton_Click(object sender, RoutedEventArgs e)
         {
-            double newNum;
-            if (double.TryParse(resultLabel.Content.ToString(), out newNum))
+            double nNumber;
+            if (double.TryParse(resultLabel.Content.ToString(), out nNumber))
             {
                 switch (selectedOperator)
                 {
                     case SelectedOperator.Addition:
-                        result = SimpleMath.Add(lastNumber, newNum);
+                        result = SimpleMath.Add(lastNumber, nNumber);
                         break;
                     case SelectedOperator.Substraction:
-                        result = SimpleMath.Substraction(lastNumber, newNum);
+                        result = SimpleMath.Substraction(lastNumber, nNumber);
                         break;
                     case SelectedOperator.Multiplication:
-                        result = SimpleMath.Multiply(lastNumber, newNum);
+                        result = SimpleMath.Multiply(lastNumber, nNumber);
                         break;
                     case SelectedOperator.Division:
-                        result = SimpleMath.Divide(lastNumber, newNum);
+                        result = SimpleMath.Divide(lastNumber, nNumber);
                         break;
                 }
-                resultLabel.Content = newNum == 0 && selectedOperator == SelectedOperator.Division ?
+                resultLabel.Content = nNumber == 0 && selectedOperator == SelectedOperator.Division ?
                                                                             "Błąd" : result.ToString();
             }
         }
